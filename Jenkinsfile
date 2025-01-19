@@ -93,6 +93,12 @@ pipeline {
             }
         }
 
+        stage('Approval') {
+            steps {
+                input message: 'Deployt prod ?', ok: 'ok to deploy prod'
+            }
+        }
+
         stage('Deploy prod') {
             agent {
                 docker {
